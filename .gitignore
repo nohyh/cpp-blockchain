@@ -1,5 +1,14 @@
-# Build output directory
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
 build/
 
-# VSCode settings
+# Editor settings
 .vscode/
+
+# Environment files
+.env
+.env.local
+.env.*.local
