@@ -1,68 +1,59 @@
-# MiniChain: A Blockchain Implementation from Scratch in C++
+<p align="right"><a href="./README.en.md">English</a> | <strong>简体中文</strong></p>
 
-<p align="center">
-  <img alt="Language" src="https://img.shields.io/github/languages/top/nohyh/Block_Chain?style=for-the-badge&color=blue">
-  <img alt="Code size" src="https://img.shields.io/github/repo-size/nohyh/Block_Chain?style=for-the-badge&color=green">
-  <img alt="License" src="https://img.shields.io/github/license/nohyh/Block_Chain?style=for-the-badge&color=lightgrey">
-</p>
+# MiniChain · 从零实现的 C++ 区块链
 
-> A minimal blockchain simulation built from scratch using C++20 to demonstrate and learn the core principles of a Bitcoin-like system, including transactions, mining, and consensus.
+一个使用 **C++20** 从零实现的教学型区块链项目，用来理解 Bitcoin-like 系统中的交易、UTXO、数字签名、PoW 挖矿、Merkle Root 与竞争式出块。
 
----
+> 项目定位是学习与原理验证，不面向生产环境。
 
-### 🎉 Project Status: Completed (v1.0)
+## 核心功能
 
-This project is now feature-complete and has been successfully tested. It serves as a functional demonstration of core blockchain concepts and was developed as an educational exercise. While it is complete, it is intended for learning purposes and may not be production-ready.
+- **钱包与签名**：基于 OpenSSL / ECDSA 生成密钥与签名交易
+- **UTXO 模型**：使用未花费交易输出管理余额
+- **Proof of Work**：实现工作量证明挖矿
+- **并发矿工**：使用 C++ 多线程模拟竞争出块
+- **区块与链**：区块包含 Merkle Root，并通过哈希串联与验证
+- **交易池**：待确认交易进入内存池后由矿工打包
 
----
+## 技术栈
 
-## ✨ Core Features
+- C++20
+- CMake
+- OpenSSL
+- STL concurrency: `thread`, `mutex`, `atomic`
 
-* **Wallet & Transactions**: Key pair generation and transaction signing using OpenSSL (ECDSA).
-* **UTXO Model**: A full implementation of the Unspent Transaction Output (UTXO) model for balance management.
-* **Concurrent Mining (PoW)**: Simulates competitive mining using C++ multi-threading and a Proof-of-Work algorithm.
-* **Blocks & Chain**: Implements a block structure with a Merkle Root, which is then verified and linked into a chain.
-* **Network Simulation**: A transaction pool temporarily stores transactions waiting to be mined by competing miners.
+## 构建
 
-## 🛠️ Tech Stack
+### Ubuntu / Debian
 
-* **Language**: C++20
-* **Build System**: CMake
-* **Dependencies**: OpenSSL
-* **Concurrency**: C++ Standard Library (`<thread>`, `<mutex>`, `<atomic>`)
-
-## 🚀 Getting Started
-
-### 1. Prerequisites
-
-Ensure you have a C++20 compatible compiler, CMake (version 3.15 or higher), and OpenSSL development libraries installed.
-
-**On Ubuntu/Debian:**
 ```bash
-sudo apt update && sudo apt install build-essential cmake libssl-dev
+sudo apt update
+sudo apt install build-essential cmake libssl-dev
 ```
-**On macOS (using Homebrew):**
+
+### macOS
+
 ```bash
 brew install cmake openssl
 ```
 
-### 2. Build and Run
+### Compile & Run
 
 ```bash
-# Clone the repository
-git clone https://github.com/nohyh/Block_Chain.git
-cd Block_Chain
-
-# Create build directory and compile
+git clone https://github.com/nohyh/cpp-blockchain.git
+cd cpp-blockchain
 mkdir build && cd build
 cmake ..
 make
-
-# Run the simulation
 ./BLOCKCHAIN_SYSTEM
 ```
-Once running, the console will display real-time information about auto-generated transactions and newly mined blocks.
 
-## 📜 License
+运行后会在控制台看到自动生成的交易与矿工竞争产生的新区块。
 
-This project is licensed under the [MIT](LICENSE) License.
+## 项目状态
+
+**v1.0 / Completed**。核心教学功能已经实现并测试完成，后续不以扩展成真实公链为目标。
+
+## License
+
+MIT
