@@ -1,5 +1,3 @@
-<p align="right"><a href="./README.en.md">English</a> | <strong>简体中文</strong></p>
-
 # MiniChain · 从零实现的 C++ 区块链
 
 一个使用 **C++20** 从零实现的教学型区块链项目，用来理解 Bitcoin-like 系统中的交易、UTXO、数字签名、PoW 挖矿、Merkle Root 与竞争式出块。
@@ -37,7 +35,7 @@ sudo apt install build-essential cmake libssl-dev
 brew install cmake openssl
 ```
 
-### Compile & Run
+### 编译与运行
 
 ```bash
 git clone https://github.com/nohyh/cpp-blockchain.git
